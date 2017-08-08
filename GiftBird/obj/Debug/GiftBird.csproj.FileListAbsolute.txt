@@ -141,7 +141,6 @@ C:\Users\go2me\Desktop\New Folder\GiftBird\bin\Microsoft.AspNet.Identity.EntityF
 C:\Users\go2me\Desktop\New Folder\GiftBird\obj\Debug\GiftBird.csprojResolveAssemblyReference.cache
 C:\Users\go2me\Desktop\New Folder\GiftBird\obj\Debug\GiftBird.dll
 C:\Users\go2me\Desktop\New Folder\GiftBird\obj\Debug\GiftBird.pdb
-C:\Users\slage\Desktop\C# Bootcamp\GiftBird\GiftBird\obj\Debug\GiftBird.csprojResolveAssemblyReference.cache
 C:\Users\slage\Desktop\C# Bootcamp\GiftBird\GiftBird\bin\Microsoft.AspNet.TelemetryCorrelation.dll
 C:\Users\slage\Desktop\C# Bootcamp\GiftBird\GiftBird\bin\System.Diagnostics.DiagnosticSource.dll
 C:\Users\slage\Desktop\C# Bootcamp\GiftBird\GiftBird\bin\Microsoft.AspNet.TelemetryCorrelation.xml
