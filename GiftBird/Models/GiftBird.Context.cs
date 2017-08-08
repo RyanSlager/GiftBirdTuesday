@@ -13,10 +13,10 @@ namespace GiftBird.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class GiftBird_DB_v1Entities1 : DbContext
+    public partial class GiftBird_DB_v1Entities2 : DbContext
     {
-        public GiftBird_DB_v1Entities1()
-            : base("name=GiftBird_DB_v1Entities1")
+        public GiftBird_DB_v1Entities2()
+            : base("name=GiftBird_DB_v1Entities2")
         {
         }
     
@@ -25,8 +25,7 @@ namespace GiftBird.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<GrantTheGiver> GrantTheGivers { get; set; }
-        public virtual DbSet<NanTheNonProfit> NanTheNonProfits { get; set; }
-        public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
+        public virtual DbSet<Donator> Donators { get; set; }
+        public virtual DbSet<NonProfit> NonProfits { get; set; }
     }
 }

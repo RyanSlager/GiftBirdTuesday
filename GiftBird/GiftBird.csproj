@@ -195,39 +195,36 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\GtGController.cs" />
+    <Compile Include="Controllers\DonatorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\NTNPController.cs" />
+    <Compile Include="Controllers\NonProfitsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\database_firewall_rules.cs">
-      <DependentUpon>GiftBird_DB.tt</DependentUpon>
+    <Compile Include="Models\Donator.cs">
+      <DependentUpon>GiftBird.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\GiftBird_DB.Context.cs">
+    <Compile Include="Models\GiftBird.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GiftBird_DB.Context.tt</DependentUpon>
+      <DependentUpon>GiftBird.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\GiftBird_DB.cs">
+    <Compile Include="Models\GiftBird.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GiftBird_DB.tt</DependentUpon>
+      <DependentUpon>GiftBird.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\GiftBird_DB.Designer.cs">
+    <Compile Include="Models\GiftBird.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GiftBird_DB.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\GrantTheGiver.cs">
-      <DependentUpon>GiftBird_DB.tt</DependentUpon>
+      <DependentUpon>GiftBird.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\NanTheNonProfit.cs">
-      <DependentUpon>GiftBird_DB.tt</DependentUpon>
+    <Compile Include="Models\NonProfit.cs">
+      <DependentUpon>GiftBird.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -242,25 +239,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\GiftBird_DB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GiftBird_DB.edmx</DependentUpon>
-      <LastGenOutput>GiftBird_DB.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\GiftBird_DB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GiftBird_DB.edmx</DependentUpon>
-      <LastGenOutput>GiftBird_DB.cs</LastGenOutput>
-    </Content>
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EntityDeploy Include="Models\GiftBird_DB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>GiftBird_DB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\GiftBird_DB.edmx.diagram">
-      <DependentUpon>GiftBird_DB.edmx</DependentUpon>
     </Content>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -270,8 +250,25 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <EntityDeploy Include="Models\GiftBird.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GiftBird.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\GiftBird.edmx.diagram">
+      <DependentUpon>GiftBird.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\GiftBird - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Models\GiftBird.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GiftBird.edmx</DependentUpon>
+      <LastGenOutput>GiftBird.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\GiftBird.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GiftBird.edmx</DependentUpon>
+      <LastGenOutput>GiftBird.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
@@ -334,6 +331,16 @@
     <Content Include="Views\NtNP\Index.cshtml" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <Content Include="Views\Donators\Create.cshtml" />
+    <Content Include="Views\Donators\Delete.cshtml" />
+    <Content Include="Views\Donators\Details.cshtml" />
+    <Content Include="Views\Donators\Edit.cshtml" />
+    <Content Include="Views\Donators\Index.cshtml" />
+    <Content Include="Views\NonProfits\Create.cshtml" />
+    <Content Include="Views\NonProfits\Delete.cshtml" />
+    <Content Include="Views\NonProfits\Details.cshtml" />
+    <Content Include="Views\NonProfits\Edit.cshtml" />
+    <Content Include="Views\NonProfits\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

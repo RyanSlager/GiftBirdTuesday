@@ -10,107 +10,107 @@ using GiftBird.Models;
 
 namespace GiftBird.Controllers
 {
-    public class NTNPController : Controller
+    public class DonatorsController : Controller
     {
-        private GiftBird_DB_v1Entities1 db = new GiftBird_DB_v1Entities1();
+        private GiftBird_DB_v1Entities2 db = new GiftBird_DB_v1Entities2();
 
-        // GET: NTNP
+        // GET: Donators
         public ActionResult Index()
         {
-            return View(db.NanTheNonProfits.ToList());
+            return View(db.Donators.ToList());
         }
 
-        // GET: NTNP/Details/5
-        public ActionResult Details(int? id)
+        // GET: Donators/Details/5
+        public ActionResult Details(long? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NanTheNonProfit nanTheNonProfit = db.NanTheNonProfits.Find(id);
-            if (nanTheNonProfit == null)
+            Donator donator = db.Donators.Find(id);
+            if (donator == null)
             {
                 return HttpNotFound();
             }
-            return View(nanTheNonProfit);
+            return View(donator);
         }
 
-        // GET: NTNP/Create
+        // GET: Donators/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: NTNP/Create
+        // POST: Donators/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,NonProfitName,NonProfitWebsite,ContactName,Address,City,State,Zip,UserID,Password,C501_C_3,CategoryOfCare")] NanTheNonProfit nanTheNonProfit)
+        public ActionResult Create([Bind(Include = "ID,FirstName,LastName,Email,Address,City,State,Zip,UserID,Password,Catagories")] Donator donator)
         {
             if (ModelState.IsValid)
             {
-                db.NanTheNonProfits.Add(nanTheNonProfit);
+                db.Donators.Add(donator);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(nanTheNonProfit);
+            return View(donator);
         }
 
-        // GET: NTNP/Edit/5
-        public ActionResult Edit(int? id)
+        // GET: Donators/Edit/5
+        public ActionResult Edit(long? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NanTheNonProfit nanTheNonProfit = db.NanTheNonProfits.Find(id);
-            if (nanTheNonProfit == null)
+            Donator donator = db.Donators.Find(id);
+            if (donator == null)
             {
                 return HttpNotFound();
             }
-            return View(nanTheNonProfit);
+            return View(donator);
         }
 
-        // POST: NTNP/Edit/5
+        // POST: Donators/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,NonProfitName,NonProfitWebsite,ContactName,Address,City,State,Zip,UserID,Password,C501_C_3,CategoryOfCare")] NanTheNonProfit nanTheNonProfit)
+        public ActionResult Edit([Bind(Include = "ID,FirstName,LastName,Email,Address,City,State,Zip,UserID,Password,Catagories")] Donator donator)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(nanTheNonProfit).State = EntityState.Modified;
+                db.Entry(donator).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(nanTheNonProfit);
+            return View(donator);
         }
 
-        // GET: NTNP/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: Donators/Delete/5
+        public ActionResult Delete(long? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NanTheNonProfit nanTheNonProfit = db.NanTheNonProfits.Find(id);
-            if (nanTheNonProfit == null)
+            Donator donator = db.Donators.Find(id);
+            if (donator == null)
             {
                 return HttpNotFound();
             }
-            return View(nanTheNonProfit);
+            return View(donator);
         }
 
-        // POST: NTNP/Delete/5
+        // POST: Donators/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(long id)
         {
-            NanTheNonProfit nanTheNonProfit = db.NanTheNonProfits.Find(id);
-            db.NanTheNonProfits.Remove(nanTheNonProfit);
+            Donator donator = db.Donators.Find(id);
+            db.Donators.Remove(donator);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

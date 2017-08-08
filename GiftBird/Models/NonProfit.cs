@@ -12,19 +12,18 @@ namespace GiftBird.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class NanTheNonProfit
+    public partial class NonProfit
     {
-        public int ID { get; set; }
+        public long ID { get; set; }
         public string NonProfitName { get; set; }
-        public string NonProfitWebsite { get; set; }
+        public string NonProfitSite { get; set; }
         public string ContactName { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
         public string State { get; set; }
-        public int Zip { get; set; }
+        public Nullable<long> Zip { get; set; }
         public string UserID { get; set; }
         public string Password { get; set; }
-        public int C501_C_3 { get; set; }
         public string CategoryOfCare { get; set; }
     }
 }

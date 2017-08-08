@@ -12,19 +12,18 @@ namespace GiftBird.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class GrantTheGiver
+    public partial class Donator
     {
-        public int ID { get; set; }
+        public long ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
         public string State { get; set; }
-        public int Zip { get; set; }
-        public string County { get; set; }
+        public Nullable<decimal> Zip { get; set; }
         public string UserID { get; set; }
         public string Password { get; set; }
-        public string CategoriesOfCare { get; set; }
+        public string Catagories { get; set; }
     }
 }
