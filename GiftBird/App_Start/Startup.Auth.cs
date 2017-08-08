@@ -54,15 +54,15 @@ namespace GiftBird
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "328135644263670",
+               appSecret: "b59faa7b25f7785b70024bb674d42883");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "301718270332-7ng14ervmc9s42ooc7ota8g2t94cq4ic.apps.googleusercontent.com",
+                ClientSecret = "UDkryPvf-YaWZIFkgZ-Up9Cg"
+            });
         }
     }
 }
