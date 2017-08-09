@@ -27,7 +27,5 @@ namespace GiftBird.Models
     
         public virtual DbSet<Donator> Donators { get; set; }
         public virtual DbSet<NonProfit> NonProfits { get; set; }
-
-        public System.Data.Entity.DbSet<GiftBird.Models.SearchModel> SearchModels { get; set; }
     }
 }
