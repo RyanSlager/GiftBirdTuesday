@@ -21,13 +21,13 @@ namespace GiftBird.Controllers
         }
 
         // GET: NonProfits/Details/5
-        public ActionResult Details(long? id)
+        public ActionResult Details(long? ID)
         {
-            if (id == null)
+            if (ID == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NonProfit nonProfit = db.NonProfits.Find(id);
+            NonProfit nonProfit = db.NonProfits.Find(ID);
             if (nonProfit == null)
             {
                 return HttpNotFound();
@@ -46,18 +46,21 @@ namespace GiftBird.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,NonProfitName,NonProfitSite,ContactName,Address,City,State,Zip,UserID,Password,CategoryOfCare")] NonProfit nonProfit)
+        public ActionResult Create([Bind(Include = "/*ID*/,NonProfitName,NonProfitSite,/*ContactName,Address,City,State,Zip,*/UserID,Password,CategoryOfCare")] NonProfit nonProfit)
         {
             if (ModelState.IsValid)
             {
                 db.NonProfits.Add(nonProfit);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("NanProfile");
             }
 
-            return View(nonProfit);
+            return View();
         }
-
+		public ActionResult NanProfile()
+		{
+			return View();
+		}
         // GET: NonProfits/Edit/5
         public ActionResult Edit(long? id)
         {
@@ -84,7 +87,7 @@ namespace GiftBird.Controllers
             {
                 db.Entry(nonProfit).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("NanProfile");
             }
             return View(nonProfit);
         }
@@ -112,7 +115,7 @@ namespace GiftBird.Controllers
             NonProfit nonProfit = db.NonProfits.Find(id);
             db.NonProfits.Remove(nonProfit);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("NanProfile");
         }
 
         protected override void Dispose(bool disposing)
