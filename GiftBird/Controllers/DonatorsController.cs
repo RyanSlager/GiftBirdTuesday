@@ -7,7 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using GiftBird.Models;
-
+using System.IO;
+using Newtonsoft.Json.Linq;
 
 namespace GiftBird.Controllers
 {
@@ -21,7 +22,7 @@ namespace GiftBird.Controllers
             return View(db.Donators.ToList());
         }
 
-        public ActionResult SearchPage(Models.SearchModel s)
+        public ActionResult SearchView(Models.SearchModel s)
         {
             ViewBag.items = MakeList();
             ViewBag.URL = CreateURL(s);

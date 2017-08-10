@@ -334,6 +334,7 @@
     <Content Include="Views\NonProfits\Index.cshtml" />
     <Content Include="Views\NonProfits\NanProfile.cshtml" />
     <Content Include="Views\Donators\DonProfile.cshtml" />
+    <Content Include="Views\Donators\SearchView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

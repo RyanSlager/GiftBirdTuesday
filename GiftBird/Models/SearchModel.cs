@@ -13,7 +13,7 @@ namespace GiftBird.Models
         public string city { get; set; }
         public string state { get; set; }
         public string zip { get; set; }
-        public string categoryOfCare { get; set; }
+        public int categoryOfCare { get; set; }
     }
 
 
