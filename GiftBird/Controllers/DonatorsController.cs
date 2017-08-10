@@ -183,11 +183,12 @@ namespace GiftBird.Controllers
             }
             base.Dispose(disposing);
         }
-        //public ActionResult DonProfile(Models.GiftBird2 r)
-        //{
-        //    ViewBag.Message = "Hello," + r.FirstName + "!";
-        //    ViewBag.Name = r.FirstName;
-        //    return View(r);
-        //}
+        public ActionResult DonProfile(Models.GiftBird2 r)
+        {
+            ViewBag.Message = "Hello," + r.FirstName + "!";
+            ViewBag.Name = r.FirstName;
+            return View(r);
+        }
     }
+}
 }
