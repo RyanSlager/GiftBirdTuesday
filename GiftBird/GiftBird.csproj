@@ -221,6 +221,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GiftBird.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\GiftBird2.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\NonProfit.cs">
@@ -332,6 +333,7 @@
     <Content Include="Views\NonProfits\Edit.cshtml" />
     <Content Include="Views\NonProfits\Index.cshtml" />
     <Content Include="Views\NonProfits\NanProfile.cshtml" />
+    <Content Include="Views\Donators\DonProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

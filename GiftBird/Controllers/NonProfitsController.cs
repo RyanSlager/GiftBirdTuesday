@@ -46,13 +46,13 @@ namespace GiftBird.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "/*ID*/,NonProfitName,NonProfitSite,/*ContactName,Address,City,State,Zip,*/UserID,Password,CategoryOfCare")] NonProfit nonProfit)
+        public ActionResult Create([Bind(Include = "ID,NonProfitName,NonProfitSite,ContactName,Address,City,State,Zip,UserID,Password,CategoryOfCare")] NonProfit nonProfit)
         {
             if (ModelState.IsValid)
             {
                 db.NonProfits.Add(nonProfit);
                 db.SaveChanges();
-                return RedirectToAction("NanProfile");
+                return RedirectToAction("Index");
             }
 
             return View();
@@ -87,7 +87,7 @@ namespace GiftBird.Controllers
             {
                 db.Entry(nonProfit).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("NanProfile");
+                return RedirectToAction("Index");
             }
             return View(nonProfit);
         }
@@ -115,7 +115,7 @@ namespace GiftBird.Controllers
             NonProfit nonProfit = db.NonProfits.Find(id);
             db.NonProfits.Remove(nonProfit);
             db.SaveChanges();
-            return RedirectToAction("NanProfile");
+            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using GiftBird.Models;
 
+
 namespace GiftBird.Controllers
 {
     public class DonatorsController : Controller
@@ -123,5 +124,11 @@ namespace GiftBird.Controllers
             }
             base.Dispose(disposing);
         }
+        //public ActionResult DonProfile(Models.GiftBird2 r)
+        //{
+        //    ViewBag.Message = "Hello," + r.FirstName + "!";
+        //    ViewBag.Name = r.FirstName;
+        //    return View(r);
+        //}
     }
 }
