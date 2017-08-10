@@ -21,6 +21,64 @@ namespace GiftBird.Controllers
             return View(db.Donators.ToList());
         }
 
+        public ActionResult SearchPage(Models.SearchModel s)
+        {
+            ViewBag.items = MakeList();
+            ViewBag.URL = CreateURL(s);
+            ViewBag.State = s.state;
+
+            return GetData(s);
+        }
+
+        public string CreateURL(Models.SearchModel s)
+        {
+            string searchParams = HttpUtility.UrlEncode(s.searchParams);
+            string state = HttpUtility.UrlEncode(s.state);
+            string city = HttpUtility.UrlEncode(s.city);
+            string zip = HttpUtility.UrlEncode(s.zip);
+            int categoryOfCare = s.categoryOfCare;
+
+            string url = "https://projects.propublica.org/nonprofits/api/v2/search.json?q=utf8=✓&q=" + searchParams + city + "&state%5Bid%5D=" + state + "&ntee%5Bid%5D=" + categoryOfCare + "&c_code%5Bid%5D=";
+
+            return url;
+        }
+
+        public ActionResult GetData(Models.SearchModel s)
+        {
+            System.Net.HttpWebRequest request = System.Net.WebRequest.CreateHttp(CreateURL(s));
+            request.UserAgent = @"User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36";
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            StreamReader rd = new StreamReader(response.GetResponseStream());
+            string ApiText = rd.ReadToEnd();
+            JObject o = JObject.Parse(ApiText);
+            ViewBag.Object = o;
+
+            for (int i = 0; i < o["organizations"].Count(); i++)
+            {
+                ViewBag.Posts += o["organizations"][i]["name"] + "   " + o["organizations"][i]["state"] + "<br>";
+            }
+            return View("SearchPage");
+        }
+
+
+        public List<SelectListItem> MakeList()
+        {
+            List<SelectListItem> items = new List<SelectListItem>();
+            items.Add(new SelectListItem { Text = "Arts, Culture & Humanities", Value = "0", Selected = true });
+            items.Add(new SelectListItem { Text = "Education", Value = "1" });
+            items.Add(new SelectListItem { Text = "Environment and Animals", Value = "2" });
+            items.Add(new SelectListItem { Text = "Health", Value = "3" });
+            items.Add(new SelectListItem { Text = "Human Services", Value = "4" });
+            items.Add(new SelectListItem { Text = "International, Foreign Affairs", Value = "5" });
+            items.Add(new SelectListItem { Text = "Public, Societal Benefit", Value = "6" });
+            items.Add(new SelectListItem { Text = "Religion Related", Value = "7" });
+            items.Add(new SelectListItem { Text = "Mutual/Membership Benefit", Value = "8" });
+
+            return items;
+
+        }
+
+
         // GET: Donators/Details/5
         public ActionResult Details(long? id)
         {
