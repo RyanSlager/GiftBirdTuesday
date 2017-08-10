@@ -90,11 +90,24 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CategoryOfCare, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CategoryOfCare, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CategoryOfCare, "", new { @class = "text-danger" })
-            </div>
+            @Html.Label("Catagories of Care", htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				<form action="/action_page.php" method="post">
+					<select name="Categories of Care">
+						<option value="Arts, Culture & Humanities">Arts, Culture & Humanities</option>
+						<option value="Education & Research">Education & Research</option>
+						<option value="Environment & Animals">Environment & Animals</option>
+						<option value="Health">Health</option>
+						<option value="Human Services">Human Services</option>
+						<option value="Public & Societal Benefit">Public & Societal Benefit</option>
+						<option value="Religion">Religion</option>
+					</select>
+					<br><br>
+
+				</form>
+				@*@Html.EditorFor(model => model.CategoryOfCare, new { htmlAttributes = new { @class = "form-control" } })*@
+				@Html.ValidationMessageFor(model => model.CategoryOfCare, "", new { @class = "text-danger" })
+			</div>
         </div>
 
         <div class="form-group">
