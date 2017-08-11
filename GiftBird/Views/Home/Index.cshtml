@@ -14,7 +14,7 @@
 
 <div class="col-md-4">
 	<h2>Already Registered?</h2>
-	<p><a href="~/Views/Donators/DonProfile.cshtml" class="btn btn-default">Click Here &raquo;</a></p>
+	<p>@Html.ActionLink("Login", "LoginUser", "Donators", new { area = "" }, new { @class = "btn btn-default" })</p>
 </div>
 
 <div class="row">

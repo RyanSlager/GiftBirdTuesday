@@ -16,7 +16,7 @@
         <fieldset class="form-group">
             <div>
                 @Html.Label("Search", new { style = "display:inline" })
-                @Html.EditorFor(model => model.searchParams);
+                @Html.EditorFor(model => model.searchParams)
             </div>
             <div>
                 @Html.Label("State", new { style = "display:inline" })
@@ -30,17 +30,22 @@
                 @Html.Label("Zip", new { style = "display:inline" })
                 @Html.EditorFor(model => model.zip)
             </div>
-            <div>
-                @Html.Label("Category of Care", new { style = "display:inline" })
-                @Html.DropDownListFor(model => model.categoryOfCare, (IEnumerable<SelectListItem>)ViewBag.items)
-            </div>
-            @Html.ActionLink("Submit", "SearchPage")
-            <input type="submit" class="btn-group-sm" value="Submit" />
+
+            <input type="submit" class="btn-custom" value="Submit" />
         </fieldset>
-        <p>@ViewBag.State</p>
-        <p>@Html.Raw(ViewBag.URL)</p>
-        <p>@Html.Raw(ViewBag.Posts)</p>
+        <p>These non-profits match your interests, consider donating today!</p>
+        <p>@Html.Raw(ViewBag.Match)</p>
+        <p>Please consider donating to these other non-profits:</p>
+        <br />
+        <p>@Html.Raw(ViewBag.NoMatch)</p>
+        <p>@ViewBag.Ntee</p>
+
+        @Html.ActionLink("Back to Profile", "DonProfileWithList")
     </form>
+    <script>
+        function Select(e)
+        { e.target.style.background = "#ADD8E6"; }
+    </script>
 }
 
 
