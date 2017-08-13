@@ -21,8 +21,10 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("NAN", "Index", "NonProfits")</li>
-                    <li>@Html.ActionLink("GTG", "Index", "Donators")</li>
+                    <li>@Html.ActionLink("Create a Donator Account", "Create", "Donators")</li>
+                    <li>@Html.ActionLink("Create a Non Profit Account", "Create", "NonProfits")</li>
+                    <li>@Html.ActionLink("Search", "SearchView", "Donators")</li>
+
                     
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -33,7 +35,10 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - giftbird inc.</p>
+                <p>&copy; @DateTime.Now.Year - giftbird inc.</p>
+                @*<p><a href="~/Home/About">About Us &raquo;</a></p>
+                <p><a href="~/Home/Contact">Contact Us &raquo;</a></p>*@
+
         </footer>
     </div>
 

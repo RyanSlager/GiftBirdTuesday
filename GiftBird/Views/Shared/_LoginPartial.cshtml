@@ -15,8 +15,12 @@
 }
 else
 {
-    @*<ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>*@
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="~/Home/About">About Us</a></li>
+        <li><a href="~/Home/Contact">Contact Us</a></li>
+        <li><a href="~/Donators/LoginUser">Log in</a></li>
+        @*<li>@Html.ActionLink("Login", "LoginUser", "Donators", new { area = "" }, new { @class = "btn btn-default" })</li>*@
+        @*<li>@Html.ActionLink("Registry Look up", "Registry", "Account", routeValues: null, htmlAttributes: new { id = "tbd })</li>*@
+        @*<li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>*@
+    </ul>
 }

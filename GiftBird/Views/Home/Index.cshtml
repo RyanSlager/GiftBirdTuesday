@@ -2,37 +2,46 @@
 
 
 @{
-    ViewBag.Title = "Home Page";
+	ViewBag.Title = "Home Page";
 }
 
 <div class="jumbotron">
-    <h1>giftbird</h1>
-    <p class="lead">
+	<h1>giftbird</h1>
+	@*<p class="lead">
 	</p>
-    <p><a href="~/Donators/Create" class="btn btn-primary btn-lg">Create Your Registry Here &raquo;</a></p>
+	<p><a href="~/Donators/Create" class="btn btn-primary btn-lg">Create Your Registry Here &raquo;</a></p>*@
 </div>
 
 <div class="col-md-4">
-	<h2>Already Registered?</h2>
-	<p>@Html.ActionLink("Login", "LoginUser", "Donators", new { area = "" }, new { @class = "btn btn-default" })</p>
+	<h3><a href="~/Donators/Create">Step 1: Register as a Donator</a></h3>
+	<h3><a href="~/Donators/LoginUser">Step 2: Log in</a></h3>
+	<h3><a href="~/Donators/SearchView">Step 3: Search</a></h3>
+	<h3><a href="~/Donators/DetailsPage">Step 4: Research, Save, & Send</a></h3>
+	
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Non Profit?</h2>
-        <p>
-            Register with giftbird
-        </p>
-        <p><a href="~/NonProfits/Create" class="btn btn-default">Click Here &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Need more info?</h2>
-        <p> Check out our FAQ page</p>
-        <p><a href="~/Home/About" class="btn btn-default">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Want to use giftbird on an existing registry?</h2>
-       <p>Click here to find a loved ones registry and send a gift. </p>
-        <p><a href="" class="btn btn-default">Search registries here. &raquo;</a></p>
-    </div>
+
+@*<div class="col-md-4">
+	<h2>Already Registered?</h2>
+	<p>@Html.ActionLink("Login", "LoginUser", "Donators", new { area = "" }, new { @class = "btn btn-default" })</p>
+</div>*@
+
+@*<div class="row">
+	<div class="col-md-4">
+		<h2>Non Profit?</h2>
+		<p>
+			Register with giftbird
+		</p>
+		<p><a href="~/NonProfits/Create" class="btn btn-default">Click Here &raquo;</a></p>
+	</div>
+	<div class="col-md-4">
+		<h2>Need more info?</h2>
+		<p> Check out our FAQ page</p>
+		<p><a href="~/Home/About" class="btn btn-default">Learn more &raquo;</a></p>
+	</div>
+	<div class="col-md-4">
+		<h2>Want to use giftbird on an existing registry?</h2>
+	   <p>Click here to find a loved ones registry and send a gift. </p>
+		<p><a href="" class="btn btn-default">Search registries here. &raquo;</a></p>
+	</div>*@
 </div>

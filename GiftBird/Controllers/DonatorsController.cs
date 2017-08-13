@@ -205,11 +205,11 @@ namespace GiftBird.Controllers
                     int nteeInt = ConvertNtee(ntee);
                     if (nteeInt == uChoice)
                     {
-                        matches += "<li onclick=\"Select(event)\">" + o["organizations"][i]["name"] + "   " + o["organizations"][i]["state"] + "    " + o["organizations"][i]["ntee_code"] + "</li>" + "<br>";
+                        matches += "<li onclick=\"Select(event)\">" + o["organizations"][i]["name"] + "   " + o["organizations"][i]["state"] + "    " + o["organizations"][i]["ntee_code"] + "</li>" + "<input type=checkbox>" + "<br>";
                     }
                     else
                     {
-                        noMatch += "<li onclick=\"Select(event)\">" + o["organizations"][i]["name"] + "   " + o["organizations"][i]["state"] + "    " + o["organizations"][i]["ntee_code"] + "</li>" + "<br>";
+                        noMatch += "<li onclick=\"Select(event)\">" + o["organizations"][i]["name"] + "   " + o["organizations"][i]["state"] + "    " + o["organizations"][i]["ntee_code"] + "</li>" + "<input type=checkbox>" + "< br>";
                     }
                 }
             }
