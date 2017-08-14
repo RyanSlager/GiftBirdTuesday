@@ -337,8 +337,8 @@
     <Content Include="Views\Donators\DonProfile.cshtml" />
     <Content Include="Views\Donators\SearchView.cshtml" />
     <Content Include="Views\Donators\DonProfileWithList.cshtml" />
-    <Content Include="Views\Donators\LoginUser.cshtml" />
     <Content Include="Views\Donators\DetailsPage.cshtml" />
+    <Content Include="Views\Donators\LoginUser2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

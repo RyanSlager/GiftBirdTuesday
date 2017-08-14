@@ -23,9 +23,20 @@ namespace GiftBird.Controllers
             return View(db.Donators.ToList());
         }
 
-      
-        // GET: Donators/Details/5
-        public ActionResult Details(long? id)
+		public ActionResult LoginUser2()
+		{
+			return View();//this is giving the view
+		}
+
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public ActionResult LoginUser2([Bind(Include = "UserID,Password")] Donator donator, Models.Donator g)
+		{
+			return Details(donator.ID);//this is the form-redirects to details action page.
+		}
+
+		// GET: Donators/Details/5
+		public ActionResult Details(long? id)
         {
             if (id == null)
             {
