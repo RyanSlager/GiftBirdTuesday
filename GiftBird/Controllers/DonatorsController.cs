@@ -203,29 +203,31 @@ namespace GiftBird.Controllers
 
 
             int uChoice = 3;
-            string matches = "";
-            string noMatch = "";
+            List<string> match = new List<string>();
+            List<string> noMatch = new List<string>();
 
             for (int i = 0; i < o["organizations"].Count(); i++)
             {
 
                 string ntee = o["organizations"][i]["ntee_code"].Value<string>();
+                string name = o["organizations"][i]["name"].Value<string>();
+                string state = o["organizations"][i]["state"].Value<string>();
 
                 if (ntee != null)
                 {
                     int nteeInt = ConvertNtee(ntee);
                     if (nteeInt == uChoice)
                     {
-                        matches += "<li onclick=\"Select(event)\">" + o["organizations"][i]["name"] + "   " + o["organizations"][i]["state"] + "    " + o["organizations"][i]["ntee_code"] + "</li>" + "< br>";
+                        match.Add($"{name}   {state}   {ntee}");
                     }
                     else
                     {
-                        noMatch += "<li onclick=\"Select(event)\">" + o["organizations"][i]["name"] + "   " + o["organizations"][i]["state"] + "    " + o["organizations"][i]["ntee_code"] + "</li>"  + "< br>";
+                        noMatch.Add($"{name}   {state}   {ntee}");
                     }
                 }
             }
 
-            ViewBag.Match = matches;
+            ViewBag.Match = match;
             ViewBag.NoMatch = noMatch;
 
             return View("SearchView");
@@ -276,75 +278,75 @@ namespace GiftBird.Controllers
 
             return convNtee;
         }
-        //Megan added this on 81317 for the Details Pages.  The two - three methods below will provide details to a detail page that the user can select to add to their registry
-        public string CreateDetailsURL(Models.SearchModel s)
-        {
-            string searchParams = HttpUtility.UrlEncode(s.searchParams);
-            string state = HttpUtility.UrlEncode(s.state);
-            string city = HttpUtility.UrlEncode(s.city);
-            string zip = HttpUtility.UrlEncode(s.zip);
-            //int categoryOfCare = s.categoryOfCare;
+        ////Megan added this on 81317 for the Details Pages.  The two - three methods below will provide details to a detail page that the user can select to add to their registry
+        //public string CreateDetailsURL(Models.SearchModel s)
+        //{
+        //    string searchParams = HttpUtility.UrlEncode(s.searchParams);
+        //    string state = HttpUtility.UrlEncode(s.state);
+        //    string city = HttpUtility.UrlEncode(s.city);
+        //    string zip = HttpUtility.UrlEncode(s.zip);
+        //    //int categoryOfCare = s.categoryOfCare;
 
-            string url = "https://projects.propublica.org/nonprofits/api/v2/search.json?q=utf8=✓&q=" + searchParams + city + "&state%5Bid%5D=" + state + "&ntee%5Bid%5D=" + "&c_code%5Bid%5D=";
+        //    string url = "https://projects.propublica.org/nonprofits/api/v2/search.json?q=utf8=✓&q=" + searchParams + city + "&state%5Bid%5D=" + state + "&ntee%5Bid%5D=" + "&c_code%5Bid%5D=";
 
-            ViewBag.URL = url;
-            return url;
-        }
-        public ActionResult GetDataDetails(Models.SearchModel s)
-        {
-            System.Net.HttpWebRequest request = System.Net.WebRequest.CreateHttp(CreateURL(s));
-            request.UserAgent = @"User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36";
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            StreamReader rd = new StreamReader(response.GetResponseStream());
-            string ApiText = rd.ReadToEnd();
-            JObject o = JObject.Parse(ApiText);
-            ViewBag.Object = o;
+        //    ViewBag.URL = url;
+        //    return url;
+        //}
+        //public ActionResult GetDataDetails(Models.SearchModel s)
+        //{
+        //    System.Net.HttpWebRequest request = System.Net.WebRequest.CreateHttp(CreateURL(s));
+        //    request.UserAgent = @"User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36";
+        //    HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+        //    StreamReader rd = new StreamReader(response.GetResponseStream());
+        //    string ApiText = rd.ReadToEnd();
+        //    JObject o = JObject.Parse(ApiText);
+        //    ViewBag.Object = o;
 
 
-            int uChoice = 3;
-            string matches = "";
-            string noMatch = "";
+        //    int uChoice = 3;
+        //    string matches = "";
+        //    string noMatch = "";
 
-            for (int i = 0; i < o["organizations"].Count(); i++)
-            {
+        //    for (int i = 0; i < o["organizations"].Count(); i++)
+        //    {
 
-                string ntee = o["organizations"][i]["ntee_code"].Value<string>();
+        //        string ntee = o["organizations"][i]["ntee_code"].Value<string>();
 
-                if (ntee != null)
-                {
-                    int nteeInt = ConvertNtee(ntee);
-                    if (nteeInt == uChoice)
-                    {
-                        matches += "<li onclick=\"Select(event)\">" + o["organizations"][i]["name"] + "   " + o["organizations"][i]["state"] + "    " + o["organizations"][i]["ntee_code"] + "</li>" + "</br>";
-                    }
-                    else
-                    {
-                        noMatch += "<li onclick=\"Select(event)\">" + o["organizations"][i]["name"] + "   " + o["organizations"][i]["state"] + "    " + o["organizations"][i]["ntee_code"] + "</li>" + "</br>";
-                    }
-                }
-            }
+        //        if (ntee != null)
+        //        {
+        //            int nteeInt = ConvertNtee(ntee);
+        //            if (nteeInt == uChoice)
+        //            {
+        //                matches += "<li onclick=\"Select(event)\">" + o["organizations"][i]["name"] + "   " + o["organizations"][i]["state"] + "    " + o["organizations"][i]["ntee_code"] + "</li>" + "</br>";
+        //            }
+        //            else
+        //            {
+        //                noMatch += "<li onclick=\"Select(event)\">" + o["organizations"][i]["name"] + "   " + o["organizations"][i]["state"] + "    " + o["organizations"][i]["ntee_code"] + "</li>" + "</br>";
+        //            }
+        //        }
+        //    }
 
-            ViewBag.Match = matches;
-            ViewBag.NoMatch = noMatch;
+        //    ViewBag.Match = matches;
+        //    ViewBag.NoMatch = noMatch;
 
-            return View("SearchView");
-        }
+        //    return View("SearchView");
+        //}
 
-        public ActionResult SaveDetails([Bind(Include = "Name,Password")] Donator donator)
-        {
-            bool matchFound = false;
+        //public ActionResult SaveDetails([Bind(Include = "Name,Password")] Donator donator)
+        //{
+        //    bool matchFound = false;
 
-            List<Donator> Donators = db.Donators.ToList();
+        //    List<Donator> Donators = db.Donators.ToList();
 
-            foreach (Donator x in Donators)
-            {
-                if (x.UserID == donator.UserID)
-                {
-                    matchFound = true;
-                }
-            }
-            return View();
-        }
+        //    foreach (Donator x in Donators)
+        //    {
+        //        if (x.UserID == donator.UserID)
+        //        {
+        //            matchFound = true;
+        //        }
+        //    }
+        //    return View();
+        //}
 
     }
 }

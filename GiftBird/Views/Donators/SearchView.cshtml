@@ -33,12 +33,16 @@
 
             <input type="submit" class="btn-custom" value="Submit" />
         </fieldset>
-        <p>These non-profits match your interests, consider donating today!</p>
-        <p>@Html.Raw(ViewBag.Match)</p>
-        <p>Please consider donating to these other non-profits:</p>
-        <br />
-        <p>@Html.Raw(ViewBag.NoMatch)</p>
-        <p>@ViewBag.Ntee</p>
+        <p>These are Non-Profits you may be intereseted in:</p><br />
+        @foreach (string x in ViewBag.Match)
+        {
+            <label><input type="checkbox" name="regSelect" value="@x" />  @x</label><br />
+        }
+        <p>Check out these Non-Profits, too!</p><br />
+        @foreach (string y in ViewBag.NoMatch)
+        {
+            <label><input type="checkbox" name="regSelect" value="@y" />  @y</label><br />
+        }
 
         @Html.ActionLink("Back to Profile", "DonProfileWithList")
     </form>
