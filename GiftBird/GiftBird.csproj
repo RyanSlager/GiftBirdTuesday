@@ -223,6 +223,7 @@
     </Compile>
     <Compile Include="Models\GiftBird2.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LoginModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\NonProfit.cs">
       <DependentUpon>GiftBird.tt</DependentUpon>
@@ -339,6 +340,7 @@
     <Content Include="Views\Donators\DonProfileWithList.cshtml" />
     <Content Include="Views\Donators\DetailsPage.cshtml" />
     <Content Include="Views\Donators\LoginUser2.cshtml" />
+    <Content Include="Views\Donators\Verify.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

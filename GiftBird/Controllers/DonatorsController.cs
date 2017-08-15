@@ -23,17 +23,12 @@ namespace GiftBird.Controllers
             return View(db.Donators.ToList());
         }
 
-		public ActionResult LoginUser2()
-		{
-			return View();//this is giving the view
-		}
-
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public ActionResult LoginUser2([Bind(Include = "UserID,Password")] Donator donator, Models.Donator g)
-		{
-			return Details(donator.ID);//this is the form-redirects to details action page.
-		}
+		//[HttpPost]
+		//[ValidateAntiForgeryToken]
+		//public ActionResult LoginUser2([Bind(Include = "UserID,Password")] Donator donator, Models.Donator g)
+		//{
+		//	return Details(donator.ID);//this is the form-redirects to details action page.
+		//}
 
 		// GET: Donators/Details/5
 		public ActionResult Details(long? id)
@@ -138,6 +133,7 @@ namespace GiftBird.Controllers
             }
             base.Dispose(disposing);
         }
+
         public ActionResult DonProfile()
         {
             ViewBag.Message = "Hello, JillAne!";
@@ -146,27 +142,55 @@ namespace GiftBird.Controllers
             return View();
         }
 
-        public ActionResult LoginUser([Bind(Include = "UserID,Password")] Donator donator)
+        public ActionResult Verify(Models.LoginModels l)
         {
-            bool matchFound = false;
-
             List<Donator> Donators = db.Donators.ToList();
+            Donator curUser = new Donator();
+            ViewBag.Okay = "";
+            ViewBag.Yay = "";
+            ViewBag.U = l.uName;
+            ViewBag.P = l.password;
+
+            bool check = false;
 
             foreach (Donator x in Donators)
             {
-                if (x.UserID == donator.UserID)
+                if (x.UserID == l.uName)
                 {
-                    matchFound = true;
+                    ViewBag.Okay += "Okay";
+                    curUser = x;
+                    if (curUser.Password == l.password)
+                    {
+                        //ViewBag.CurPass = curUser.Password;
+                        //ViewBag.LoginPass = l.password;
+                        //ViewBag.CurName = curUser.UserID;
+                        //ViewBag.LoginName = l.uName;
+
+                        //check = true;
+                        //ViewBag.Check = check;
+                        return DetailsPage(curUser, l);
+                    }
+                 
                 }
             }
-            return View();
+
+            return LoginUser2();
         }
 
-        public ActionResult DonProfileWithList()
+        public ActionResult DetailsPage(Donator curUser, Models.LoginModels l)
         {
-            return View();
+            
+            //ViewBag.Yay += "yay";
+            //ViewBag.Name = curUser.FirstName + " " + curUser.LastName;
+            //ViewBag.CurPass = curUser.Password;
+            //ViewBag.LoginPass = l.password;
+            return View("DetailsPage");
         }
 
+        public ActionResult LoginUser2()
+        {
+            return View("LoginUser2");
+        }
 
         public ActionResult SearchView(Models.SearchModel s)
         {
@@ -278,6 +302,8 @@ namespace GiftBird.Controllers
 
             return convNtee;
         }
+
+
         ////Megan added this on 81317 for the Details Pages.  The two - three methods below will provide details to a detail page that the user can select to add to their registry
         //public string CreateDetailsURL(Models.SearchModel s)
         //{

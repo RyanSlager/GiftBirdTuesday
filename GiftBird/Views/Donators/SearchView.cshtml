@@ -33,6 +33,10 @@
 
             <input type="submit" class="btn-custom" value="Submit" />
         </fieldset>
+    </form>
+}
+
+
         <p>These are Non-Profits you may be intereseted in:</p><br />
         @foreach (string x in ViewBag.Match)
         {
@@ -41,16 +45,16 @@
         <p>Check out these Non-Profits, too!</p><br />
         @foreach (string y in ViewBag.NoMatch)
         {
-            <label><input type="checkbox" name="regSelect" value="@y" />  @y</label><br />
+            //<label><input type="checkbox" name="regSelect" value="@y" />  @y</label><br />
         }
 
         @Html.ActionLink("Back to Profile", "DonProfileWithList")
-    </form>
+
     <script>
         function Select(e)
         { e.target.style.background = "#ADD8E6"; }
     </script>
-}
+
 
 
 

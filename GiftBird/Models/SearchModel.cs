@@ -14,6 +14,7 @@ namespace GiftBird.Models
         public string state { get; set; }
         public string zip { get; set; }
         public int categoryOfCare { get; set; }
+        public List<bool> registry { get; set; }
     }
 
 

@@ -1,41 +1,30 @@
-﻿@model GiftBird.Models.Donator
+﻿@model GiftBird.Models.LoginModels
 
 @{
 	ViewBag.Title = "LoginUser2";
 }
 
 <h2>LoginUser2</h2>
-<form action="LoginUser2" method="post">
-	@Html.AntiForgeryToken()
-	<div>
-		<h4>Donator</h4>
-		<hr />
-		<dl class="dl-horizontal">
-			<dt>
-				@Html.DisplayNameFor(model => model.UserID)
-				@Html.EditorFor(model => model.UserID, new { htmlAttributes = new { @class = "form-control" } })
-				@Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
-			</dt>
+@using (Html.BeginForm("Verify", "Donators", FormMethod.Post))
+{
 
-			<dd>
-				@Html.DisplayFor(model => model.UserID)
-			</dd>
 
-			<dt>
-				@Html.DisplayNameFor(model => model.Password)
-				@Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-				@Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-			</dt>
+        <fieldset class="form-group">
+            <div>
+                @Html.Label("User Name", new { style = "display:inline" })
+                @Html.EditorFor(model => model.uName)
+            </div>
+            <div>
+                @Html.Label("Password", new { style = "display:inline" })
+                @Html.EditorFor(model => model.password)
+            </div>
+            <input type="submit" class="btn-custom" value="Submit" />
+            @*@Html.ActionLink("Submit", "Login", "Donators")*@
 
-			<dd>
-				@Html.DisplayFor(model => model.Password)
-			</dd>
+        </fieldset>
 
-		</dl>
-	</div> 
-	@*<input value="Login" class="btn btn-default" type="submit">*@
-</form>
-<p>
-    @Html.ActionLink("Log In", "DonProfile","Donators", new { area = " " }, new { @class = "btn btn-default" }) 
-  
-</p>
+}
+    <p>@ViewBag.U</p>
+    <p>@ViewBag.P</p>
+
+
