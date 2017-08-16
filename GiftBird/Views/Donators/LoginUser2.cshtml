@@ -4,20 +4,22 @@
 	ViewBag.Title = "LoginUser2";
 }
 
-<h2>LoginUser2</h2>
+<h2>Login</h2>
 @using (Html.BeginForm("Verify", "Donators", FormMethod.Post))
 {
 
 
         <fieldset class="form-group">
             <div>
-                @Html.Label("User Name", new { style = "display:inline" })
+                @Html.Label("User ID", new { style = "display:inline" })
                 @Html.EditorFor(model => model.uName)
             </div>
+			<br />
             <div>
                 @Html.Label("Password", new { style = "display:inline" })
                 @Html.EditorFor(model => model.password , "Password")
             </div>
+			<br />
             <input type="submit" class="btn-custom" value="Submit" />
             @*@Html.ActionLink("Submit", "Login", "Donators")*@
 

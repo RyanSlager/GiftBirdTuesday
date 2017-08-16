@@ -18,18 +18,22 @@
                 @Html.Label("Search", new { style = "display:inline" })
                 @Html.EditorFor(model => model.searchParams)
             </div>
+			<br />
             <div>
                 @Html.Label("State", new { style = "display:inline" })
                 @Html.EditorFor(model => model.state)
             </div>
+			<br />
             <div>
                 @Html.Label("City", new { style = "display:inline" })
                 @Html.EditorFor(model => model.city)
             </div>
+			<br />
             <div>
                 @Html.Label("Zip", new { style = "display:inline" })
                 @Html.EditorFor(model => model.zip)
             </div>
+			<br />
 
             <input type="submit" class="btn-custom" value="Submit" />
         </fieldset>
@@ -48,7 +52,7 @@
             <label><input type="checkbox" name="regSelect" value="@y" />  @y</label><br />
         }
 
-        @Html.ActionLink("Back to Profile", "DonProfileWithList")
+        @Html.ActionLink("Back to your profile page", "DetailsPage")
 
     <script>
         function Select(e)
