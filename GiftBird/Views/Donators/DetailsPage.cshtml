@@ -1,16 +1,24 @@
 ﻿@model GiftBird.Models.Donator
 
 @{
-    ViewBag.Title = "Details Page";
+    ViewBag.Title = "DetailsPage";
 }
 
 <body>
     <div>
-        <p>@ViewBag.CurPass</p>
-        <p>@ViewBag.LoginPass</p>
-        <p>@ViewBag.Name</p>
-        <p>@ViewBag.Yay</p>
-        <p>@ViewBag.Okay</p>
+        <h2>@ViewBag.Name </h2>
+
+
+
+        @*<p>@ViewBag.CurPass</p>
+            <p>@ViewBag.LoginPass</p>*@
+        @*<p>@ViewBag.Name</p>*@
+        @*<p>@ViewBag.Yay</p>*@
+        @*<p>@ViewBag.Okay</p> steph took all these out because we dont need him*@
+        <p>@ViewBag.Message</p>
     </div>
+    <h3>Here are your current charities selected for donation:</h3>
+    <!--still need to populate the 3 charities that user selected from search page-->
 </body>
 
+<h6> Want to add to your list? @Html.ActionLink("Search", "SearchView")</h6>

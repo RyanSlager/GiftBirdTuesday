@@ -45,7 +45,7 @@
         <p>Check out these Non-Profits, too!</p><br />
         @foreach (string y in ViewBag.NoMatch)
         {
-            //<label><input type="checkbox" name="regSelect" value="@y" />  @y</label><br />
+            <label><input type="checkbox" name="regSelect" value="@y" />  @y</label><br />
         }
 
         @Html.ActionLink("Back to Profile", "DonProfileWithList")

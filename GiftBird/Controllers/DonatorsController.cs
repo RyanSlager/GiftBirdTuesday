@@ -134,14 +134,6 @@ namespace GiftBird.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult DonProfile()
-        {
-            ViewBag.Message = "Hello, JillAne!";
-            DateTime thisDay = DateTime.Now;
-            ViewBag.Message = "Welcome, today is: " + thisDay.ToString("D");
-            return View();
-        }
-
         public ActionResult Verify(Models.LoginModels l)
         {
             List<Donator> Donators = db.Donators.ToList();

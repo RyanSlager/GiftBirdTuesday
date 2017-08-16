@@ -335,9 +335,7 @@
     <Content Include="Views\NonProfits\Edit.cshtml" />
     <Content Include="Views\NonProfits\Index.cshtml" />
     <Content Include="Views\NonProfits\NanProfile.cshtml" />
-    <Content Include="Views\Donators\DonProfile.cshtml" />
     <Content Include="Views\Donators\SearchView.cshtml" />
-    <Content Include="Views\Donators\DonProfileWithList.cshtml" />
     <Content Include="Views\Donators\DetailsPage.cshtml" />
     <Content Include="Views\Donators\LoginUser2.cshtml" />
     <Content Include="Views\Donators\Verify.cshtml" />
