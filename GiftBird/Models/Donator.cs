@@ -25,5 +25,6 @@ namespace GiftBird.Models
         public string UserID { get; set; }
         public string Password { get; set; }
         public string Catagories { get; set; }
+        public string Registry { get; set; }
     }
 }

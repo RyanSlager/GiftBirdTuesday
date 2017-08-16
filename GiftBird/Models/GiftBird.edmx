@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="GiftBird_DB_v1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="GiftBird_DB_v1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Donators">
           <Key>
             <PropertyRef Name="ID" />
@@ -20,6 +20,7 @@
           <Property Name="UserID" Type="nvarchar" MaxLength="50" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" />
           <Property Name="Catagories" Type="nvarchar(max)" />
+          <Property Name="Registry" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="NonProfit">
           <Key>
@@ -35,14 +36,13 @@
           <Property Name="Zip" Type="bigint" />
           <Property Name="UserID" Type="nvarchar" MaxLength="25" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" />
-          <Property Name="CategoryOfCare" Type="nvarchar" MaxLength="20" />
+          <Property Name="CategoryOfCare" Type="nvarchar(max)" />
         </EntityType>
         <EntityContainer Name="GiftBird_DB_v1ModelStoreContainer">
           <EntitySet Name="Donators" EntityType="Self.Donators" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NonProfit" EntityType="Self.NonProfit" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="GiftBird_DB_v1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -61,6 +61,7 @@
           <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Catagories" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Registry" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="NonProfit">
           <Key>
@@ -76,7 +77,7 @@
           <Property Name="Zip" Type="Int64" />
           <Property Name="UserID" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CategoryOfCare" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryOfCare" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="GiftBird_DB_v1Entities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Donators" EntityType="Self.Donator" />
@@ -91,6 +92,7 @@
           <EntitySetMapping Name="Donators">
             <EntityTypeMapping TypeName="GiftBird_DB_v1Model.Donator">
               <MappingFragment StoreEntitySet="Donators">
+                <ScalarProperty Name="Registry" ColumnName="Registry" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />

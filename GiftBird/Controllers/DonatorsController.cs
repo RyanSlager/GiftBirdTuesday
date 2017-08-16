@@ -62,10 +62,14 @@ namespace GiftBird.Controllers
             {
                 db.Donators.Add(donator);
                 db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+				//Donator loggedUser = new Donator();
+				//ViewBag.Name = "Hello " + loggedUser.FirstName + ", welcome to your giftbird registry!";
+				//this would not work so we just decided to route to loginuser2 and have donator login.
+				return RedirectToAction("LoginUser2");
+				//return View("DetailsPage");
+			}
 
-            return View(donator);
+            return View();
         }
 
         // GET: Donators/Edit/5
@@ -88,7 +92,7 @@ namespace GiftBird.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,FirstName,LastName,Email,Address,City,State,Zip,UserID,Password,Catagories")] Donator donator)
+        public ActionResult Edit([Bind(Include = "ID,FirstName,LastName,Email,Address,City,State,Zip,UserID,Password,Catagories,Registry")] Donator donator)
         {
             if (ModelState.IsValid)
             {
@@ -171,13 +175,17 @@ namespace GiftBird.Controllers
 
         public ActionResult DetailsPage(Donator curUser, Models.LoginModels l)
         {
-            
-            //ViewBag.Yay += "yay";
-            //ViewBag.Name = curUser.FirstName + " " + curUser.LastName;
-            //ViewBag.CurPass = curUser.Password;
-            //ViewBag.LoginPass = l.password;
-            return View("DetailsPage");
-        }
+
+			DateTime thisDay = DateTime.Now;
+			ViewBag.Message = "Today is: " + thisDay.ToString("D");
+			//Steph added this view bag message from Don Profile
+			//ViewBag.Yay += "yay";
+			ViewBag.Name = "Hello " + curUser.FirstName + ", welcome to your giftbird registry!" /*+ " " + curUser.LastName*/;
+			ViewBag.RegTest = "You have selected " + curUser.Registry;
+			//ViewBag.CurPass = curUser.Password;
+			//ViewBag.LoginPass = l.password;
+			return View("DetailsPage");
+		}
 
         public ActionResult LoginUser2()
         {
