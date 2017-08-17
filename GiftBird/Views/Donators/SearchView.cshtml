@@ -20,28 +20,28 @@
                     <div class="form-group">
                         @Html.Label("Search", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.searchParams, new { htmlAttributes = new { @class = "form-control", placeholder = "Humane Society" } })
+                            @Html.EditorFor(model => model.searchParams, new { htmlAttributes = new { @class = "form-control", placeholder = "Humane Society + Grand Rapids" } })
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    @*<div class="form-group">
                         @Html.Label("City", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.city, new { htmlAttributes = new { @class = "form-control", placeholder = "Grand Rapids" } })
                         </div>
-                    </div>
+                    </div>*@
                     <div class="form-group">
                         @Html.Label("State", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.state, new { htmlAttributes = new { @class = "form-control", placeholder = "MI" } })
                         </div>
                     </div>
-                    <div class="form-group">
+                    @*<div class="form-group">
                         @Html.Label("Zip", htmlAttributes: new { @class = "control-label col-md-2"})
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.zip, new { htmlAttributes = new { @class = "form-control", placeholder = "49503" } })
                         </div>
-                    </div>
+                    </div>*@
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
                             <input type="submit" value="Submit" class="btn btn-default" />
