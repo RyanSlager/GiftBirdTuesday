@@ -16,7 +16,7 @@
 				<div class="form-group">
 					@Html.Label("User ID", htmlAttributes: new { @class = "control-label col-md-2" })
 					<div class="col-md-10">
-						@Html.EditorFor(model => model.uName, new { htmlAttributes = new { @class = "form-control" } })
+						@Html.EditorFor(model => model.uName, new { htmlAttributes = new { @class = "form-control", placeholder = "unique identifier" } })
 					</div>
 				</div>
 				<br />
@@ -24,14 +24,16 @@
 					<div class="form-group">
 						@Html.Label("Password", htmlAttributes: new { @class = "control-label col-md-2" })
 						<div class="col-md-10">
-							@Html.EditorFor(model => model.password, "Password", new { htmlAttributes = new { @class = "form-control" } })
+							@Html.EditorFor(model => model.password, "Password", new { htmlAttributes = new { @class = "form-control", placeholder = "8 characters" } })
 						</div>
 					</div>
-					<br />
-					<input type="submit" class="btn-custom" value="Submit" />
-					@*@Html.ActionLink("Submit", "Login", "Donators")*@
-				</div>
-		</fieldset>
+					<div class="form-group">
+						<div class="col-md-offset-2 col-md-10">
+							<input type="submit" value="Submit" class="btn btn-default" />
+							@*@Html.ActionLink("Submit", "Login", "Donators")*@
+						</div>
+					</div>
+</fieldset>
 	}
 </div>
 
