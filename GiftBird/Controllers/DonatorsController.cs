@@ -177,11 +177,11 @@ namespace GiftBird.Controllers
         {
 
 			DateTime thisDay = DateTime.Now;
-			ViewBag.Message = "Today is: " + thisDay.ToString("D");
+			ViewBag.Message = "As of " + thisDay.ToString("D");
 			//Steph added this view bag message from Don Profile
 			//ViewBag.Yay += "yay";
 			ViewBag.Name = "Hello " + curUser.FirstName + ", welcome to your giftbird registry!" /*+ " " + curUser.LastName*/;
-			ViewBag.RegTest = "You have selected " + curUser.Registry;
+			ViewBag.RegTest = "We have these charities saved for you:" + curUser.Registry;
 			//ViewBag.CurPass = curUser.Password;
 			//ViewBag.LoginPass = l.password;
 			return View("DetailsPage");

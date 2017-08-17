@@ -5,28 +5,37 @@
 }
 
 <h2>Login</h2>
-@using (Html.BeginForm("Verify", "Donators", FormMethod.Post))
-{
+<hr />
+<div class="form-horizontal">
+	@using (Html.BeginForm("Verify", "Donators", FormMethod.Post))
+	{
+		@Html.AntiForgeryToken();
+		@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+		<fieldset class="form-group">
+			<div>
+				<div class="form-group">
+					@Html.Label("User ID", htmlAttributes: new { @class = "control-label col-md-2" })
+					<div class="col-md-10">
+						@Html.EditorFor(model => model.uName, new { htmlAttributes = new { @class = "form-control" } })
+					</div>
+				</div>
+				<br />
+				<div>
+					<div class="form-group">
+						@Html.Label("Password", htmlAttributes: new { @class = "control-label col-md-2" })
+						<div class="col-md-10">
+							@Html.EditorFor(model => model.password, "Password", new { htmlAttributes = new { @class = "form-control" } })
+						</div>
+					</div>
+					<br />
+					<input type="submit" class="btn-custom" value="Submit" />
+					@*@Html.ActionLink("Submit", "Login", "Donators")*@
+				</div>
+		</fieldset>
+	}
+</div>
 
-
-        <fieldset class="form-group">
-            <div>
-                @Html.Label("User ID", new { style = "display:inline" })
-                @Html.EditorFor(model => model.uName)
-            </div>
-			<br />
-            <div>
-                @Html.Label("Password", new { style = "display:inline" })
-                @Html.EditorFor(model => model.password , "Password")
-            </div>
-			<br />
-            <input type="submit" class="btn-custom" value="Submit" />
-            @*@Html.ActionLink("Submit", "Login", "Donators")*@
-
-        </fieldset>
-
-}
-    <p>@ViewBag.U</p>
-    <p>@ViewBag.P</p>
+	<p>@ViewBag.U</p>
+	<p>@ViewBag.P</p>
 
 
