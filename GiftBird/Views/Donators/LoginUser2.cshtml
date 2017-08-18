@@ -18,6 +18,8 @@
 					<div class="col-md-10">
 						@Html.EditorFor(model => model.uName, new { htmlAttributes = new { @class = "form-control", placeholder = "unique identifier" } })
 					</div>
+					<p>@Html.ValidationMessageFor(model => model.uName)</p>
+					<p>@ViewBag.U</p>
 				</div>
 				<br />
 				<div>
@@ -26,6 +28,9 @@
 						<div class="col-md-10">
 							@Html.EditorFor(model => model.password, "Password", new { htmlAttributes = new { @class = "form-control", placeholder = "8 characters" } })
 						</div>
+						<p>@Html.ValidationMessageFor(model => model.password)</p>
+						<p>@ViewBag.P</p>
+
 					</div>
 					<div class="form-group">
 						<div class="col-md-offset-2 col-md-10">
@@ -36,8 +41,5 @@
 </fieldset>
 	}
 </div>
-
-	<p>@ViewBag.U</p>
-	<p>@ViewBag.P</p>
 
 
